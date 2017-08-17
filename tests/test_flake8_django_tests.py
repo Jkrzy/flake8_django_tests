@@ -22,3 +22,10 @@ class TestFlake8_django_tests(unittest.TestCase):
     def test_docstring_is_noncompliant_if_startswith_ensure(self):
         """Doc string is non-compliant if it starts with ensure"""
         self.assertFalse(check_compliance("ensure that....."))
+
+    def test_docstring_is_noncompliant_if_startswith_ensure_and_return(self):
+        """Doc string is non-compliant if it starts with ensure and a return"""
+        docstring = """
+        ensure
+        """
+        self.assertFalse(check_compliance(docstring))

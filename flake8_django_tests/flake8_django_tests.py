@@ -31,6 +31,6 @@ def check_compliance(docstring):
     Compliance determined by Django's coding-style.txt
     """
     compliant = False
-    if docstring is None or not docstring.lower().startswith(NONCOMPLIANT_STARTSWITH):
+    if docstring is None or not docstring.lstrip().lower().startswith(NONCOMPLIANT_STARTSWITH):
         compliant = True
     return compliant
